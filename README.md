@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GloRoots DataTable
+
+A feature-rich data table implementation built with Next.js and TypeScript, featuring a JSON Server backend. This project demonstrates a modern approach to building interactive data tables with comprehensive CRUD operations and advanced filtering capabilities.
+
+## Features
+
+### Data Table
+
+- 📊 Server-side sorting and pagination
+- 🔍 Real-time debounced search functionality
+- 👁️ Column visibility toggle
+
+### CRUD Operations
+
+- ✨ Create new posts with a modal interface
+- 📖 Read and display posts with pagination
+- 📝 Update existing posts
+- 🗑️ Delete posts with confirmation
+- ⏰ Automatic timestamp tracking for updates
+
+## Tech Stack
+
+- **Frontend**
+
+  - Next.js 14
+  - React 18
+  - TypeScript
+  - Tailwind CSS
+  - Lucide React (icons)
+
+- **Backend**
+  - JSON Server
+  - Concurrently (for running multiple scripts)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (>= 18.17.0)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone [repository-url]
+   cd gloroots-datatable
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+The project includes both the Next.js frontend and JSON Server backend. You can start both simultaneously using:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Frontend: http://localhost:3000
+- Backend: http://localhost:3001
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To run them separately:
 
-## Learn More
+```bash
+# Start only the frontend
+npm run dev:server
 
-To learn more about Next.js, take a look at the following resources:
+# Start only the backend
+npm run server
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The JSON Server provides the following endpoints:
 
-## Deploy on Vercel
+- `GET /posts` - Retrieve all posts (supports pagination, sorting, and filtering)
+- `POST /posts` - Create a new post
+- `PATCH /posts/:id` - Update an existing post
+- `DELETE /posts/:id` - Delete a post
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Query parameters:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `_page` - Page number
+- `_limit` - Items per page
+- `_sort` - Sort field
+- `_order` - Sort order (asc/desc)
+- `q` - Search query
+
+## Project Structure
+
+## Customization
+
+### Column Visibility
+
+Users can toggle the visibility of columns using the checkboxes above the table. Available columns:
+
+- Title
+- Author
+- Content
+- Last Updated
+
+### Search
+
+The search functionality includes:
+
+- Real-time input updates
+- 100ms debounce to prevent excessive API calls
+- Global search across all visible columns
+
+### Pagination
+
+- Previous/Next navigation
+- Current page information
+- Total results counter
+- Items per page display
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
